@@ -1,0 +1,159 @@
+STRINGS
+
+1)CAMELCASE
+import math
+import os
+import random
+import re
+import sys
+
+def camelcase(s):
+    for x in 'ABCDEFGHIJKLMNOPQRSTUVWXYZ':
+        s = s.replace(x, " "+x.lower())
+    return (len(s.split()))
+if __name__ == '__main__':
+    fptr = open(os.environ['OUTPUT_PATH'], 'w')
+
+    s = input()
+
+    result = camelcase(s)
+
+    fptr.write(str(result) + '\n')
+
+    fptr.close()
+
+
+2)MARS EXPLORATION
+import math
+import os
+import random
+import re
+import sys
+
+def marsExploration(s):
+    C = 0
+    for x in range(len(s)):
+        if x%3 == 0 or x%3 == 2:
+            if s[x] != "S":
+                C += 1
+            else:
+                C += 0
+        elif x%3 == 1:
+            if s[x] != "O":
+                C += 1
+            else:
+                C += 0
+    return C
+if __name__ == '__main__':
+    fptr = open(os.environ['OUTPUT_PATH'], 'w')
+
+    s = input()
+
+    result = marsExploration(s)
+
+    fptr.write(str(result) + '\n')
+
+    fptr.close()
+
+
+3)STRING CONSTRUCTION
+import math
+import os
+import random
+import re
+import sys
+def stringConstruction(s):
+    c = 0
+    p = []
+    for x in range(len(s)):
+        if s[x] not in p:
+            c += 1
+            p.append(s[x])
+        else:
+            c += 0
+            p.append(s[x])
+    return c
+if __name__ == '__main__':
+    fptr = open(os.environ['OUTPUT_PATH'], 'w')
+
+    q = int(input())
+
+    for q_itr in range(q):
+        s = input()
+
+        result = stringConstruction(s)
+
+        fptr.write(str(result) + '\n')
+
+    fptr.close()
+
+
+4)PANGRAM
+import math
+import os
+import random
+import re
+import sys
+def pangrams(s):
+    nws = s.lower()
+    c = 0
+    for x in 'abcdefghijklmnopqrstuvwxyz':
+        if x in nws:
+            c += 0
+        else:
+            c += 1
+    print (c)
+    if c == 0:
+        return ('pangram')
+    elif c > 0:
+        return ('not pangram')
+
+if __name__ == '__main__':
+    fptr = open(os.environ['OUTPUT_PATH'], 'w')
+
+    s = input()
+
+    result = pangrams(s)
+
+    fptr.write(result + '\n')
+
+    fptr.close()
+
+
+5)FUNNY STRING
+import math
+import os
+import random
+import re
+import sys
+def funnyString(s):
+    L = []
+    dif = []
+    DIF = []
+    for x in s:
+        L.append(ord(x))
+    for i in range(0,len(L)-1):
+        d = abs(L[i] - L[i+1])
+        dif.append(d)
+    L.reverse()
+    for j in range(0,len(L)-1):
+        D = abs(L[j] - L[j+1])
+        DIF.append(D)
+    if dif == DIF:
+        return 'Funny'
+    else:
+        return 'Not Funny'
+if __name__ == '__main__':
+    fptr = open(os.environ['OUTPUT_PATH'], 'w')
+
+    q = int(input())
+
+    for q_itr in range(q):
+        s = input()
+
+        result = funnyString(s)
+
+        fptr.write(result + '\n')
+
+    fptr.close()
+
